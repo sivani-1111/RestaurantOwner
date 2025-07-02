@@ -1,0 +1,65 @@
+.login-card {
+    box-shadow: 0 4px 18px #0008;
+    border: 1px solid var(--primary);
+    background: var(--bg-panel);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    color: var(--muted);
+    margin-bottom: 4px;
+    display: block;
+}
+
+input[type="email"],
+input[type="password"] {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text);
+    padding: 9px;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 0;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input:focus {
+    border: 1.5px solid var(--primary);
+}
+
+.error {
+    color: var(--danger);
+    min-height: 18px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.btn.primary.fullwidth {
+    width: 100%;
+    margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+    .login-card {
+        padding: 16px 8px;
+    }
+    .logo {
+        font-size: 1.2em;
+    }
+}

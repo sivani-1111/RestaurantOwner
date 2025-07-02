@@ -1,6 +1,235 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <style> 
+    :root {
+    --bg-dark: #17181c;
+    --bg-panel: #23242a;
+    --primary: #00b894;
+    --primary-dark: #00896c;
+    --secondary: #636e72;
+    --accent: #ffeaa7;
+    --danger: #d63031;
+    --text: #f5f6fa;
+    --muted: #b2bec3;
+    --card-radius: 14px;
+    --input-bg: #22232b;
+    --input-border: #2d3436;
+    --shadow: 0 2px 16px #0006;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.navbar {
+    background: var(--bg-panel);
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    margin-right: 16px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:last-child {
+    margin-right: 0;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.btn {
+    padding: 7px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    margin-left: 6px;
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: var(--bg-dark);
+}
+
+.btn.primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn.secondary {
+    background: var(--secondary);
+    color: var(--text);
+}
+
+.btn.secondary:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+.btn.fullwidth {
+    width: 100%;
+}
+
+.container {
+    max-width: 520px;
+    margin: 40px auto;
+    padding: 0 18px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background: var(--bg-panel);
+    padding: 32px 24px 24px 24px;
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.welcome-card {
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+label {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-size: 1em;
+}
+
+input[type="text"], input[type="password"], input[type="number"] {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text);
+    padding: 9px;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 0;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input:focus {
+    border: 1.5px solid var(--primary);
+}
+
+.error {
+    color: var(--danger);
+    min-height: 18px;
+    margin-bottom: 10px;
+}
+
+.horizontal-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.horizontal-form input[type="text"], 
+.horizontal-form input[type="number"] {
+    flex: 1 1 130px;
+    min-width: 120px;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item, .order-item {
+    background: var(--input-bg);
+    color: var(--text);
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    padding: 13px 15px;
+    box-shadow: 0 1px 6px #0004;
+}
+
+.menu-actions, .order-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.menu-actions button, .order-actions button {
+    background: var(--danger);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.menu-actions button:hover, .order-actions button:hover {
+    background: #b71c1c;
+}
+
+.status-select {
+    background: var(--bg-dark);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .navbar, .container { padding-left: 6px; padding-right: 6px; }
+    .card, .login-card, .welcome-card { padding: 16px 8px; }
+    .logo { font-size: 1.1em; }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #191b1d;
+}
+::-webkit-scrollbar-thumb {
+    background: #25262a;
+    border-radius: 6px;
+}
+  </style>
   <meta charset="utf-8">
   <title>RestaurantOwner</title>
   <base href="/">

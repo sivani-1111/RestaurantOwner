@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <div class="logo">🍽️ Order Management</div>
+  <div>
+    <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+    <a routerLink="/menu" class="nav-link">Menu</a>
+    <button (click)="logout()" class="btn secondary">Logout</button>
+  </div>
+</nav>
+<div class="container">
+  <div class="card">
+    <h2>Orders</h2>
+    <ul class="list">
+      <li *ngFor="let order of orders" class="order-item">
+        <div>
+          <b>Order #{{order.orderID}}</b>
+          <div style="font-size:0.97em; color:#aaa;">Restaurant: {{order.restaurantName}}</div>
+          <div>Total: ${{order.totalAmount}}</div>
+        </div>
+        <div class="order-actions">
+          <select class="status-select" [(ngModel)]="order.status" (change)="updateStatus(order.orderID, order.status)">
+            <option *ngFor="let st of statuses" [value]="st">{{st | titlecase}}</option>
+          </select>
+        </div>
+      </li>
+      <li *ngIf="!orders.length" class="order-item">No orders yet.</li>
+    </ul>
+    <div class="error">{{ error }}</div>
+  </div>
+  <div *ngIf="showToast" class="toast">{{ toastMessage }}</div>
+</div>

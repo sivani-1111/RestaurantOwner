@@ -1,0 +1,43 @@
+
+<nav class="navbar">
+  <div class="logo">🍽️ Menu Management</div>
+  <div>
+    <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+    <a routerLink="/orders" class="nav-link">Orders</a>
+    <button (click)="logout()" class="btn secondary">Logout</button>
+  </div>
+</nav>
+<div class="container">
+  <div class="card">
+    <h2>{{ isEditing ? 'Update Menu Item' : 'Add New Menu Item' }}</h2>
+    <form class="horizontal-form" (ngSubmit)="submitItem()">
+      <input [(ngModel)]="itemName" name="itemName" placeholder="Item Name" required />
+      <input [(ngModel)]="itemDescription" name="itemDescription" placeholder="Description" required />
+      <input [(ngModel)]="itemPrice" name="itemPrice" placeholder="Price" type="number" min="0" step="0.01" required />
+      <input type="file" (change)="onFileSelected($event)" />
+      <button type="submit" class="btn primary">{{ isEditing ? 'Update' : 'Add' }}</button>
+      <button type="button" class="btn secondary" *ngIf="isEditing" (click)="resetForm()">Cancel</button>
+    </form>
+    <div class="error">{{ error }}</div>
+  </div>
+  <div class="card">
+    <h2>Current Menu</h2>
+    <ul class="list">
+      <li *ngFor="let item of menu" class="menu-item">
+        <div class="item-details">
+          <img *ngIf="item.imageUrl" [src]="'http://localhost:5153' + item.imageUrl" alt="{{item.name}}" class="item-image" />
+          <div>
+            <strong>{{item.name}}</strong><br />
+            {{item.description}}<br />
+            ₹{{item.price.toFixed(2)}}
+          </div>
+        </div>
+        <div class="menu-actions">
+          <button (click)="editItem(item.itemID)">Edit</button>
+          <button (click)="removeItem(item.itemID)">Delete</button>
+        </div>
+      </li>
+      <li *ngIf="!menu.length" class="menu-item">No items yet.</li>
+    </ul>
+  </div>
+</div>

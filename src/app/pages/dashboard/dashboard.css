@@ -1,0 +1,6 @@
+.welcome-card {
+    border: 1.5px solid var(--primary);
+    background: linear-gradient(135deg, var(--bg-panel) 80%, var(--primary) 100%);
+    color: var(--text);
+    margin-top: 36px;
+}

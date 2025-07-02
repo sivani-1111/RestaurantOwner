@@ -1,0 +1,36 @@
+.order-item {
+    border-left: 5px solid var(--secondary);
+    transition: border 0.2s;
+}
+.order-item b {
+    color: var(--primary);
+}
+.order-actions .status-select {
+    min-width: 120px;
+}
+.order-item:hover {
+    border-left: 7px solid var(--accent);
+    background: #232a2c;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #323232;
+  color: #fff;
+  padding: 16px 30px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  animation: fadeInOut 2s;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
